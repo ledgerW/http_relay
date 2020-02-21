@@ -16,9 +16,6 @@ provider:
   region: ca-central-1
 
   environment:
-    HOST_URL: ${env:HOST_URL}
-    USERNAME: ${env:USERNAME}
-    PASSWORD: ${env:PASSWORD}
     TEST: test_value
 
 
