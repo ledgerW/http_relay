@@ -11,24 +11,18 @@ PASSWORD = os.environ['PASSWORD']
 
 
 def main(event, context):
-    if event['body']['method'] == 'GET':
-        logger.info(event)
-        #response = requests.get('{}{}'.format(HOST_URL, event['body']['path']),
-        #                        auth=(USERNAME, PASSWORD),
-        #                        params=event['body']['body'])
+    print(USERNAME)
+    if event['httpMethod'] == 'GET':
+        response = requests.get('{}{}'.format(HOST_URL, event['path']),
+                                auth=(USERNAME, PASSWORD),
+                                params=event['queryStringParameters'])
 
-    if event['body']['method'] == 'POST':
-        logger.info(event)
-        #response = requests.post('{}{}'.format(HOST_URL, event['body']['path']),
-        #                        auth=(USERNAME, PASSWORD),
-        #                        data=event['body']['body'],
-        #                        headers = {'content-type': 'application/json'})
+    if event['httpMethod'] == 'POST':
+        response = requests.post('{}{}'.format(HOST_URL, event['path']),
+                                auth=(USERNAME, PASSWORD),
+                                data=json.dumps(event['body']),
+                                headers={'content-type': 'application/json'})
 
-    #print(event)
-    #logger.info(event)
-    response = {
-        "statusCode": 200,
-        "body": json.dumps(event)
-    }
+    logger.info(event)
 
     return response

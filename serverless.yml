@@ -15,21 +15,16 @@ provider:
   stage: dev
   region: ca-central-1
 
-  environment:
-    HOST_URL: ${env:HOST_URL}
-    USERNAME: ${env:USERNAME}
-    PASSWORD: ${env:PASSWORD}
-
-
 functions:
   relay:
     handler: relay.main
     memorySize: 256
     timeout: 60
+    environment:
+      HOST_URL: ${env:HOST_URL}
+      USERNAME: ${env:USERNAME}
+      PASSWORD: ${env:PASSWORD}
     events:
       - http:
-          path: relay
-          method: post
-      - http:
-          path: relay
-          method: get
+          path: /{any+}
+          method: any
