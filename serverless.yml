@@ -19,7 +19,6 @@ provider:
     HOST_URL: ${env:HOST_URL}
     USERNAME: ${env:USERNAME}
     PASSWORD: ${env:PASSWORD}
-    TEST: test_value
 
 
 functions:
