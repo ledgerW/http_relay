@@ -14,11 +14,12 @@ provider:
   runtime: python3.7
   stage: dev
   region: ca-central-1
-  
+
   environment:
     HOST_URL: ${env:HOST_URL}
     USERNAME: ${env:USERNAME}
     PASSWORD: ${env:PASSWORD}
+    TEST: test_value
 
 
 functions:
