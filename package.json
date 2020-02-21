@@ -1,0 +1,24 @@
+{
+  "name": "http_relay",
+  "version": "1.0.0",
+  "description": "An AWS serverless HTTP relay",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "serverless-dotenv-plugin": "^2.3.2",
+    "serverless-offline": "^5.12.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ledgerW/http_relay.git"
+  },
+  "author": "ledgerW",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ledgerW/http_relay/issues"
+  },
+  "homepage": "https://github.com/ledgerW/http_relay#readme"
+}
