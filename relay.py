@@ -11,7 +11,6 @@ PASSWORD = os.environ['PASSWORD']
 
 
 def main(event, context):
-    print(USERNAME)
     if event['httpMethod'] == 'GET':
         response = requests.get('{}{}'.format(HOST_URL, event['path']),
                                 auth=(USERNAME, PASSWORD),

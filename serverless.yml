@@ -3,7 +3,7 @@ service: http-relay
 plugins:
   - serverless-offline
   - serverless-dotenv-plugin
-
+  - serverless-python-requirements
 custom:
   # Our stage is based on what is passed in when running serverless
   # commands. Or fallsback to what we have set in the provider section.
@@ -20,6 +20,8 @@ functions:
     handler: relay.main
     memorySize: 256
     timeout: 60
+    layers:
+      - {Ref: PythonRequirementsLambdaLayer}
     environment:
       HOST_URL: ${env:HOST_URL}
       USERNAME: ${env:USERNAME}
