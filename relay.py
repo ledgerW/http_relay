@@ -6,8 +6,6 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 HOST_URL = os.environ['HOST_URL']
-USERNAME = os.environ['USERNAME']
-PASSWORD = os.environ['PASSWORD']
 
 
 def main(event, context):
@@ -20,15 +18,15 @@ def main(event, context):
 
     if event['httpMethod'] == 'POST':
         resp = requests.post('{}{}'.format(HOST_URL, event['path']),
-                             data=json.dumps(event['body']),
+                             data=event['body'],
                              headers={'content-type': 'application/json',
                                       'Authorization': event['headers']['Authorization']})
-
-    logger.info(resp)
 
     response = {
         'statusCode': resp.status_code,
         'body': json.dumps(resp.json())
     }
+
+    logger.info(response)
 
     return response
